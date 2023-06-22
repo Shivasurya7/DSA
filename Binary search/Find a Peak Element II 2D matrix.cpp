@@ -48,7 +48,6 @@ public:
             mid = (l+h)/2;
             max = maxi(mat[mid]);
 
-            cout<<mid<<" "<<max<<endl;
             if(mid == 0){
                 if(mat[mid][max] >  mat[mid+1][max]){
                     return {mid , max};
