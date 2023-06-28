@@ -33,8 +33,8 @@ The maximum number of products given to any store is max(100000) = 100000.
  
 Constraints:
 m == quantities.length
-1 <= m <= n <= 105
-1 <= quantities[i] <= 105
+1 <= m <= n <= 10^5
+1 <= quantities[i] <= 10^5
 */
 
 int isAnswer(int n, vector<int>& q,int s){
