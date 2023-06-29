@@ -18,7 +18,6 @@ Explanation: There are four ways to split nums into two subarrays.
 The best way is to split it into [1,2,3] and [4,5], where the largest sum among the two subarrays is only 9.
 
 Constraints:
-
 1 <= nums.length <= 1000
 0 <= nums[i] <= 10^6
 1 <= k <= min(50, nums.length)
