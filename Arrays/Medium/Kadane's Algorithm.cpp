@@ -1,41 +1,55 @@
 /*
-53. Maximum Subarray
+Kadane's Algorithm
 
-Given an integer array nums, find the 
-subarray with the largest sum, and return its sum.
+Given an array Arr[] of N integers. Find the contiguous sub-array(containing at least one number) which has the maximum sum and return its sum.
 
 Example 1:
-Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
-Output: 6
-Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+Input:
+N = 5
+Arr[] = {1,2,3,-2,5}
+Output:
+9
+Explanation:
+Max subarray sum is 9
+of elements (1, 2, 3, -2, 5) which 
+is a contiguous subarray.
 
 Example 2:
-Input: nums = [1]
-Output: 1
-Explanation: The subarray [1] has the largest sum 1.
+Input:
+N = 4
+Arr[] = {-1,-2,-3,-4}
+Output:
+-1
+Explanation:
+Max subarray sum is -1 
+of element (-1)
 
-Example 3:
-Input: nums = [5,4,-1,7,8]
-Output: 23
-Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
+Your Task:
+You don't need to read input or print anything. The task is to complete the function maxSubarraySum() which takes Arr[] and N as input parameters and returns the sum of subarray with maximum sum.
+
+Expected Time Complexity: O(N)
+Expected Auxiliary Space: O(1)
 
 Constraints:
-1 <= nums.length <= 10^5
--10^4 <= nums[i] <= 10^4
+1 ≤ N ≤ 10^6
+-10^7 ≤ A[i] ≤ 10^7
 
-Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 */
 
-// 
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
 
-class Solution {
-public:
-    int maxSubArray(vector<int>& nums) {
-        if(nums.size() == 1){
+
+// } Driver Code Ends
+class Solution{
+    public:
+    long long maxSubarraySum(int nums[], int n){
+        if(n == 1){
             return nums[0];
         }
-       int max = INT_MIN,sum = 0;
-       for(int  i = 0; i < nums.size(); i++){
+        long long max = INT_MIN,sum = 0;
+        for(int  i = 0; i < n; i++){
            sum += nums[i];
            if(sum > max){
                max = sum;
@@ -43,10 +57,35 @@ public:
            if(sum < 0){
                sum = 0;
            }
-       }
-       return max; 
+        }
+        return max; 
     }
 };
+
+//{ Driver Code Starts.
+
+int main()
+{
+    int t,n;
+    
+    cin>>t; //input testcases
+    while(t--) //while testcases exist
+    {
+        
+        cin>>n; //input size of array
+        
+        int a[n];
+        
+        for(int i=0;i<n;i++)
+            cin>>a[i]; //inputting elements of array
+            
+        Solution ob;
+        
+        cout << ob.maxSubarraySum(a, n) << endl;
+    }
+}
+
+// } Driver Code Ends
 
 /*
 Algorithm used to  solve above problem is : Kadane’s Algorithm
