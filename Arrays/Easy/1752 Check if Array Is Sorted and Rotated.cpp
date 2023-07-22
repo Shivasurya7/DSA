@@ -36,15 +36,8 @@ public:
     bool check(vector<int>& nums) {
         int f = 0;
         for(int i = 0; i < nums.size(); i++){
-            if(i == nums.size()-1){
-                if(!(nums[i] <= nums[nums.size()-i-1])){
-                    f++;
-                }
-            }
-            else{
-                if(!(nums[i] <= nums[i+1])){
-                    f++;
-                }
+            if(!(nums[i] <= nums[(i+1) % nums.size()])){
+                f++;
             }
             if(f > 1){
                 return false;
