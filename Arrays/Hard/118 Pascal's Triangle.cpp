@@ -48,3 +48,27 @@ public:
         return tri;
     }
 };
+
+//optimal approach
+
+class Solution {
+public:
+    vector <int> generateRow(int n){
+        vector <int> result;
+        int ans =1;
+        result.push_back(ans);
+        for(int j = 1; j < n; j++){
+            ans *= n-j;
+            ans /= j;
+            result.push_back(ans);
+        }
+        return result;
+    }
+    vector<vector<int>> generate(int num) {
+        vector <vector<int>> result;
+        for(int i = 1; i <= num; i++){
+            result.push_back(generateRow(i));
+        }
+        return result;
+    }
+};
