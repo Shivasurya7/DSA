@@ -68,3 +68,50 @@ public:
         return ans;
     }
 };
+
+//own approach (using recursion but not optimal)
+
+#include <bits/stdc++.h>
+using namespace std;
+
+vector <int> possibleMax(vector <int> nums,int k,int l = 1,int j = 0,int sumMax = 0){
+    int sum = 0;
+    static vector <int> result;
+    if(l == k){
+        for(int i = j; i < (int)nums.size(); i++){
+            sum += nums[i];
+        }
+        if(sum > sumMax){
+            result.push_back(sum);
+        }
+        else{
+            result.push_back(sumMax);
+        }
+        return result;
+    }
+   for(int i = j; i < (int)nums.size()-(k-l); i++){
+        sum += nums[i];
+        possibleMax(nums,k,l+1,i+1,(sum > sumMax)? sum:sumMax);
+   }
+   return result;
+}
+
+int main()
+{
+    vector <int> nums,result;
+    int n,t,k;
+    cin>>n;
+    for(int i = 0; i < n; i++){
+        cin>>t;
+        nums.push_back(t);
+    }
+    cin>>k;
+    result = possibleMax(nums,k);
+    int l = result[0];
+    for(int i = 1; i < (int)result.size(); i++){
+        if(l > result[i]){
+            l = result[i];
+        }
+    }
+    cout<<l;
+}
