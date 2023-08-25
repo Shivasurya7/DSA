@@ -35,6 +35,8 @@ Constraints:
 1 <= s.length <= 10^5
 s[i] is either '(' or ')'.
 s is a valid parentheses string.
+
+Problem Link -> https://leetcode.com/problems/remove-outermost-parentheses/submissions/
 */
 
 //own approach
